@@ -32,7 +32,7 @@ services:
       - MYSQL_USER=magento
       - MYSQL_PASSWORD=magento
     volumes:
-      - dbdata:/var/lib/mysql
+      - $BITBUCKET_CLONE_DIR/dev/instance/db:/var/lib/mysql
     networks:
       - <project_name>-network
 
