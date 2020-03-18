@@ -8,9 +8,9 @@ services:
       - "9001:9000" # xdebug
       # - "35729:35729" # live reload
     volumes:
-      - /opt/atlassian/bitbucketci/agent/build/dev/instance/src:/var/www/html
-      - /opt/atlassian/bitbucketci/agent/build/dev/instance/.composer:/var/www/.composer
-      - /opt/atlassian/bitbucketci/agent/build/dev/instance/.npm:/var/www/.npm
+      - ./src:/var/www/html
+      - ~/.composer:/var/www/.composer
+      - ~/.npm:/var/www/.npm
       # - ~/.nvm:/var/www/.nvm
     environment:
       XDEBUG_CONFIG: "remote_host=localhost"
