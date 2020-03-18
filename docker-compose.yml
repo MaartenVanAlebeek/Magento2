@@ -9,8 +9,8 @@ services:
       # - "35729:35729" # live reload
     volumes:
       - ./src:/var/www/html
-      - ~/.composer:/var/www/.composer
-      - ~/.npm:/var/www/.npm
+      - ./.composer:/var/www/.composer
+      - ./.npm:/var/www/.npm
       # - ~/.nvm:/var/www/.nvm
     environment:
       XDEBUG_CONFIG: "remote_host=localhost"
@@ -32,7 +32,7 @@ services:
       - MYSQL_USER=magento
       - MYSQL_PASSWORD=magento
     volumes:
-      - /opt/atlassian/bitbucketci/agent/build/dev/instance/db:/var/lib/mysql
+      - ./db:/var/lib/mysql
     networks:
       - <project_name>-network
 
