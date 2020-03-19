@@ -9,8 +9,8 @@ services:
       # - "35729:35729" # live reload
     volumes:
       - ./src:/var/www/html
-      - ./.composer:/var/www/.composer
-      - ./.npm:/var/www/.npm
+      - /opt/atlassian/pipelines/agent/build/.composer:/var/www/.composer
+      - /opt/atlassian/pipelines/agent/build/.npm:/var/www/.npm
       # - ~/.nvm:/var/www/.nvm
     environment:
       XDEBUG_CONFIG: "remote_host=localhost"
