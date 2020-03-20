@@ -9,7 +9,7 @@ services:
       # - "35729:35729" # live reload
     volumes:
       - ./src:/var/www/html
-      - /opt/atlassian/pipelines/agent/build/.composer:/var/www/.composer
+      - ~/.composer:/var/www/.composer
       - /opt/atlassian/pipelines/agent/build/.npm:/var/www/.npm
       # - ~/.nvm:/var/www/.nvm
     environment:
