@@ -70,16 +70,16 @@ RUN curl -sL https://deb.nodesource.com/setup_6.x | bash - \
 
 # Install Composer
 
-RUN	curl -sS https://getcomposer.org/installer | php -- --install-dir=/opt/atlassian/pipelines/agent/build/ --filename=composer
+RUN	curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/ --filename=composer
 RUN composer global require hirak/prestissimo
 
 # Install Code Sniffer
 
-RUN git clone https://github.com/magento/marketplace-eqp.git /opt/atlassian/pipelines/agent/build/.composer/vendor/magento/marketplace-eqp
-RUN cd /opt/atlassian/pipelines/agent/build/.composer/vendor/magento/marketplace-eqp && composer install
-RUN ln -s /opt/atlassian/pipelines/agent/build/.composer/vendor/magento/marketplace-eqp/vendor/bin/phpcs /usr/local/bin;
+RUN git clone https://github.com/magento/marketplace-eqp.git ~/.composer/vendor/magento/marketplace-eqp
+RUN cd ~/.composer/vendor/magento/marketplace-eqp && composer install
+RUN ln -s ~/.composer/vendor/magento/marketplace-eqp/vendor/bin/phpcs /usr/local/bin;
 
-ENV PATH="/opt/atlassian/pipelines/agent/build/.composer/vendor/bin/:${PATH}"
+ENV PATH="/var/www/.composer/vendor/bin/:${PATH}"
 
 # Install XDebug
 

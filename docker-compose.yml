@@ -1,4 +1,5 @@
-version: '2'
+version: '3'
+
 services:
   apache:
     image: rafaelcgstz/magento2
@@ -8,7 +9,7 @@ services:
       - "9001:9000" # xdebug
       # - "35729:35729" # live reload
     volumes:
-      - ./src:/var/www/html
+      - .:/var/www/html/vendor/Prototype
       - /opt/atlassian/pipelines/agent/build/.composer:/var/www/.composer
       - /opt/atlassian/pipelines/agent/build/.npm:/var/www/.npm
       # - ~/.nvm:/var/www/.nvm
@@ -19,8 +20,6 @@ services:
       - db
     links:
       - db
-    networks:
-      - <project_name>-network
 
   db:
     image: mariadb
@@ -31,49 +30,20 @@ services:
       - MYSQL_DATABASE=magento
       - MYSQL_USER=magento
       - MYSQL_PASSWORD=magento
-    volumes:
-      - ./db:/var/lib/mysql
-    networks:
-      - <project_name>-network
-
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    environment:
-     - PMA_HOST=db
-     - PMA_USER=root
-     - PMA_PASSWORD=root
-     - MYSQL_ROOT_PASSWORD=root
-    ports:
-     - 8080:80
-    networks:
-      - <project_name>-network
-
-  redis:
+  
+redis:
     image: redis
     ports:
      - 6379
-    networks:
-      - <project_name>-network
 
   redis-session:
     image: redis
     ports:
      - 6379
-    networks:
-      - <project_name>-network
 
   mailhog:
     image: mailhog/mailhog
     ports:
       - 1025:1025
       - 8025:8025
-    networks:
-      - <project_name>-network
 
-networks:
-  <project_name>-network:
-    driver: bridge
-
-volumes:
-  dbdata:
-    driver: local
