@@ -1,2 +1,0 @@
-#!/bin/bash -e
-docker-compose exec -T --user www-data apache /var/www/html/bin/magento $@
