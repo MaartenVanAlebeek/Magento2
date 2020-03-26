@@ -7,7 +7,7 @@ services:
     ports:
       - "9001:9000" # xdebug
     volumes:
-      #- .:/var/www/html/vendor/Prototype
+      - .:/var/www/html/vendor/Prototype
       - /opt/atlassian/pipelines/agent/build/.composer:/var/www/.composer
       - /opt/atlassian/pipelines/agent/build/.npm:/var/www/.npm
     environment:
