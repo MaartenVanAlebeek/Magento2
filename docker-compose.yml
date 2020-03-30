@@ -7,7 +7,7 @@ services:
     ports:
       - "9001:9000" # xdebug
     volumes:
-      - .:/var/www/magento
+      - .:/var/www/html
 #      - /opt/atlassian/pipelines/agent/build/.composer:/var/www/.composer
       - .composer:/var/www/.composer 
       - .npm:/var/www/.npm
