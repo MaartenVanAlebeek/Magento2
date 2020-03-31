@@ -8,7 +8,7 @@ services:
       - "9001:9000" # xdebug
     working_dir: /var/www/html/magento2
     volumes:
-#      - .:/var/www/html
+      - .:/var/www/html
 #      - /opt/atlassian/pipelines/agent/build/.composer:/var/www/.composer
       - /opt/atlassian/pipelines/agent/build/.composer:/var/www/.composer
       - /opt/atlassian/pipelines/agent/build/.npm:/var/www/.npm
