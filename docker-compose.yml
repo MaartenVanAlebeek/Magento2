@@ -7,10 +7,9 @@ services:
     ports:
       - "9001:9000" # xdebug
     volumes:
-      - .:/var/www
-#      - /opt/atlassian/pipelines/agent/build/.composer:/var/www/.composer
-      - ./.composer:/var/www/.composer
-      - ./.npm:/var/www/.npm
+      - /opt/atlassian/pipelines/agent/build:/var/www
+      - /opt/atlassian/pipelines/agent/build/.composer:/var/www/.composer
+      - /opt/atlassian/pipelines/agent/build/.npm:/var/www/.npm
     environment:
       XDEBUG_CONFIG: "remote_host=localhost"
       PHP_IDE_CONFIG: "serverName=Docker"
