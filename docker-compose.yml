@@ -7,10 +7,10 @@ services:
     ports:
       - "9001:9000" # xdebug
     volumes:
-      - /opt/atlassian/pipelines/agent/build:/var/www
+      - .:/var/www
 #      - /opt/atlassian/pipelines/agent/build/.composer:/var/www/.composer
-      - /opt/atlassian/pipelines/agent/build/.composer:/var/www/.composer
-      - /opt/atlassian/pipelines/agent/build/.npm:/var/www/.npm
+      - ./.composer:/var/www/.composer
+      - ./.npm:/var/www/.npm
     environment:
       XDEBUG_CONFIG: "remote_host=localhost"
       PHP_IDE_CONFIG: "serverName=Docker"
@@ -24,7 +24,7 @@ services:
     ports:
       - 3300:3306
     environment:
-      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_ROOT_PASSWORD=
       - MYSQL_DATABASE=magento
       - MYSQL_USER=magento
       - MYSQL_PASSWORD=magento
