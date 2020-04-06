@@ -15,6 +15,8 @@ services:
       PHP_IDE_CONFIG: "serverName=Docker"
     depends_on:
       - db
+    networks:
+      - dbbridge
 
   db:
     image: mariadb
@@ -26,6 +28,8 @@ services:
       - MYSQL_DATABASE=magento
       - MYSQL_USER=root
       - MYSQL_PASSWORD=root
+    networks:
+      - dbbridge
   
   redis:
     image: redis
@@ -42,3 +46,7 @@ services:
     ports:
       - 1025:1025
       - 8025:8025
+      
+networks:
+  dbbridge:
+    
