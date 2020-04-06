@@ -18,6 +18,7 @@ services:
 
   db:
     image: mariadb
+    restart: always
     expose:
       - "3306"
     environment:
