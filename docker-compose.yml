@@ -5,7 +5,7 @@ services:
     image: rafaelcgstz/magento2
     # build: .
     ports:
-      - "9001:9000" # xdebug
+      - "9001:9001" # xdebug
     volumes:
       - /opt/atlassian/pipelines/agent/build:/var/www
       - /opt/atlassian/pipelines/agent/build/.composer:/var/www/.composer
@@ -21,7 +21,7 @@ services:
   db:
     image: mariadb
     ports:
-      - 3300:3306
+      - 3300:3300
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=magento
