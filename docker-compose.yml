@@ -20,13 +20,13 @@ services:
 
   db:
     image: mariadb
-    ports:
-      - 3306:3306
+    expose:
+      - "3306"
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=magento
-      - MYSQL_USER=magento
-      - MYSQL_PASSWORD=magento
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=root
   
   redis:
     image: redis
