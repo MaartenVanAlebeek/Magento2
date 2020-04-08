@@ -4,7 +4,7 @@ services:
   apache:
     image: rafaelcgstz/magento2
     ports:
-      - "9001:9001" # xdebug
+      - 9001:9001
     volumes:
       - /opt/atlassian/pipelines/agent/build:/var/www
       - /opt/atlassian/pipelines/agent/build/.composer:/var/www/.composer
@@ -21,7 +21,7 @@ services:
     image: mariadb
     restart: always
     expose:
-      - "3306"
+      - 3306
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=magento
